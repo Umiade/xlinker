@@ -1,0 +1,158 @@
+{
+    "plt": [
+        {
+            "off": -384,
+            "foo": "_libc_init"
+        },
+        {
+            "off": -372,
+            "foo": "__cxa_atexit"
+        },
+        {
+            "off": -360,
+            "foo": "__aeabi_memclr4"
+        },
+        {
+            "off": -348,
+            "foo": "sprintf"
+        },
+        {
+            "off": -336,
+            "foo": "strcpy"
+        },
+        {
+            "off": -324,
+            "foo": "feof"
+        },
+        {
+            "off": -312,
+            "foo": "fgets"
+        },
+        {
+            "off": -300,
+            "foo": "strlen"
+        },
+        {
+            "off": -288,
+            "foo": "strncasecmp"
+        },
+        {
+            "off": -276,
+            "foo": "fwrite"
+        },
+        {
+            "off": -264,
+            "foo": "__aeabi_memcpy4"
+        },
+        {
+            "off": -252,
+            "foo": "strncpy"
+        },
+        {
+            "off": -240,
+            "foo": "__stack_chk_fail"
+        },
+        {
+            "off": -228,
+            "foo": "fopen"
+        },
+        {
+            "off": -216,
+            "foo": "fclose"
+        },
+        {
+            "off": -204,
+            "foo": "fprintf"
+        },
+        {
+            "off": -192,
+            "foo": "fseek"
+        },
+        {
+            "off": -180,
+            "foo": "ftell"
+        },
+        {
+            "off": -168,
+            "foo": "__aeabi_memclr"
+        },
+        {
+            "off": -156,
+            "foo": "strcmp"
+        },
+        {
+            "off": -144,
+            "foo": "strcat"
+        },
+        {
+            "off": -132,
+            "foo": "fgetc"
+        },
+        {
+            "off": -120,
+            "foo": "strchr"
+        },
+        {
+            "off": -108,
+            "foo": "remove"
+        },
+        {
+            "off": -96,
+            "foo": "fputs"
+        },
+        {
+            "off": -84,
+            "foo": "printf"
+        },
+        {
+            "off": -72,
+            "foo": "puts"
+        },
+        {
+            "off": -60,
+            "foo": "__gnu_Unwind_Find_exidx"
+        },
+        {
+            "off": -48,
+            "foo": "abort"
+        },
+        {
+            "off": -36,
+            "foo": "memcpy"
+        },
+        {
+            "off": -24,
+            "foo": "__cxa_begin_cleanup"
+        },
+        {
+            "off": -12,
+            "foo": "__cxa_type_match"
+        }
+    ],
+    "got": [
+        {
+            "off": 13352,
+            "foo": "__stack_chk_guard_ptr"
+        },
+        {
+            "off": 13356,
+            "foo": "__sF"
+        }
+    ],
+    "rodata": [
+        {
+            "off": 12232,
+            "foo": "[%s]"
+        },
+        {
+            "off": 12248,
+            "foo": "[+] dm patch success"
+        }
+    ],
+    "bss": [
+        {
+            "off": 13528,
+            "foo": "0"
+        }
+    ]
+}
