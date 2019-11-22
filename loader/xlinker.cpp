@@ -501,7 +501,7 @@ void* xdlopen(const char* filename, const char* plkfile, int flags)
 
 		// mmap 足够大的空间，并将rodata对应的偏移处置为不可读，xlinker在调用时会主动捕获这种不可读引起的异常，修复context后返回
 
-		// Fix PLT： 代码从第二页开始加载，因此访问PLT时偏移位于第一页，第一页属性为PROT_NONE；malloc buf, 主动dlsym，置入正确的地址（如何判断arm/thumb?）
+		// Fix PLT： 代码从第二页开始加载，因此访问PLT时偏移位于第一页，第一页属性为PROT_NONE；malloc buf, 主动dlsym，置入正确的地址
 		// Fix GOT: 目前GOT表中只额外修复__stack_chk_guard_ptr与__sF，malloc buf，__stack_chk_guard_ptr为任意值，__sF=stderr-0xA8
 		// Fix rodata: malloc buf， 置入原始内容
 		// Fix bss: malloc buf，置为0
@@ -603,35 +603,6 @@ int xexec(void* handle, void* addr)
 }
 
 typedef int (*FUNC_MAIN)(int argc, char** argv);
-
-/* ===================================================== /
-
-有源码so加固方案
- -- ......
-
-/ ===================================================== */
-
-// TODO: 执行xlinker之前，需要完成正常elf的解析工作。
-// Ⅰ 包括导出符号（函数、全局变量）偏移表；
-// Ⅱ 重定位占坑（如memcpy等外部需要重定位的函数，修改相关BL指令，用特定的占坑符号表示不同的函数）（可通过修改LLVM后端实现？）
-// Ⅲ 在使用xlinker执行这种特殊格式的bin文件之前，主动修复重定位占坑符，可视为另一种形式的重定位实现
-
-// 难点：
-// *0. 如何识别GOT中的全局变量，并对代码进行修复（在编译后端完成处理？）
-//  1. 如何解析BL指令，需要正确识别所有跳转指令，并判断偏移是否超过buffer
-// *2. 如何修改LLVM后端，何处入手
-//  3. 如何主动修复占坑符号（尝试修复跳板函数，即被IDA识别为形如j_printf的函数）
-
-/* ===================================================== /
-
-从自定义linker的so加载方案 --> 无源码so加固方案
-
-*--另一种实现java层加固的思路
-另实现smali2lua，修改luajit实现中字节码的映射表；
-使用当前的so加固方案保护这种变体lua字节码的解释器
-
-/ ===================================================== */
-
 
 int main(int argc, char** argv)
 {
